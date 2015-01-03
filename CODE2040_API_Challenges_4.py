@@ -65,17 +65,22 @@ b = a.split(', ')[1]
 c = datetime1 + final_date
 d = str(c)
 
+#print initial date
 print date
 
 #concatenate strings to get iso 8601 datestamp
 end = d + 'T' + b + '.000Z'
 
+#print final date
 print end
 
+#send new array
 data = {}
 data['token'] = token
 data['datestamp'] = end
 json_data = json.dumps(data)
 r = requests.post("http://challenge.code2040.org/api/validatetime", json_data)
+
+#print results
 print r.text
 
